@@ -19,4 +19,9 @@ export class PaisService {
       catchError(err => of([]) ) // of genera observable
      ); */
   }
+
+  buscarCapital(termino: string): Observable<Country[]> {
+    const url = ` ${ this.apiUrl }/capital/${ termino }`;
+    return this.http.get<Country[]>( url );
+  }
 }
