@@ -1,1 +1,84 @@
-<p>ver-pais works!</p>
+<div *ngIf="!pais; else divPais" class="alert alert-info">
+  Espere por favor...
+</div>
+
+<ng-template #divPais>
+  <div clas="row ">
+    <div class="col-12">
+      <h1 class="text-center">
+        <small>{{ pais.name }}</small>
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <h3>Bandera</h3>
+      <img class="img-thumbnail" [src]="pais.flag" />
+    </div>
+
+    <div class="col">
+      <h3>Informacion</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Poblacion: </strong> {{ pais.population | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>Capital: </strong> {{ pais.capital }}
+        </li>
+        <li class="list-group-item">
+          <strong>Moneda: </strong> {{ pais.currencies[0].name }}
+        </li>
+        <li class="list-group-item">
+            <strong>Continente:</strong> {{ pais.region }}
+        </li>
+        <li class="list-group-item">
+          <strong>Abreviatura:</strong> {{ pais.alpha2Code }}
+        </li>
+        <li class="list-group-item">
+            <strong>Lititud y Longitud:</strong> ({{ pais.latlng[0] }}, {{pais.latlng[1]}})
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Traducciones</h3>
+  <div class="row">
+    <div class="col">
+      <span class="badge bg-primary mr-1"
+        >Alemán: {{ pais.translations.de }}</span
+      >
+      <span class="badge bg-primary mr-1"
+        >Español: {{ pais.translations.es }}</span
+      >
+      <span class="badge bg-primary mr-1"
+        >Francés: {{ pais.translations.fr }}</span
+      >
+      <span class="badge bg-primary mr-1"
+        >Japonés: {{ pais.translations.ja }}</span
+      >
+      <span class="badge bg-primary mr-1"
+        >Italiano: {{ pais.translations.it }}</span
+      >
+      <span class="badge bg-primary mr-1"
+        >Bretón: {{ pais.translations.br }}</span
+      >
+      <span class="badge bg-primary mr-1"
+        >Portugués: {{ pais.translations.pt }}</span
+      >
+      <span class="badge bg-primary mr-1"
+        >Neerlandés: {{ pais.translations.nl }}</span
+      >
+      <span class="badge bg-primary mr-1"
+        >Croata: {{ pais.translations.hr }}</span
+      >
+      <span class="badge bg-primary mr-1"
+        >Persa: {{ pais.translations.fa }}</span
+      >
+    </div>
+  </div>
+
+  <!-- <pre class="mt-5">
+      {{ pais | json }}
+  </pre> -->
+</ng-template>
