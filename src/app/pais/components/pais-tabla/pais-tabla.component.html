@@ -14,7 +14,7 @@
         <td>
           <img class="small-flag" [src]="pais.flag">
         </td>
-        <td> {{ pais.capital }}{{ pais.name }}</td>
+        <td> {{ pais.capital }}, {{ pais.name }}</td>
         <td>{{ pais.population | number }}</td> <!--number es para especificar en formato numero-->
         <td>
           <a [routerLink]="['/pais', pais.alpha2Code]">Ver...</a>
